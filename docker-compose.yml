@@ -2,12 +2,14 @@ services:
   app1:
     image: luxveris/reverse2:app1
     container_name: app1
+    restart: unless-stopped
     networks:
       - webnet
 
   app2:
     image: luxveris/reverse2:app2
     container_name: app2
+    restart: unless-stopped
     networks:
       - webnet
 
@@ -21,6 +23,7 @@ services:
     depends_on:
       - app1
       - app2
+    restart: unless-stopped
     networks:
       - webnet
 
