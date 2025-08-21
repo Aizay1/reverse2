@@ -1,20 +1,20 @@
 services:
   app1:
-    build: ./app1
+    image: luxveris/reverse2:app1
     container_name: app1
     networks:
       - webnet
 
   app2:
-    build: ./app2
+    image: luxveris/reverse2:app2
     container_name: app2
     networks:
       - webnet
 
   nginx:
-    image: nginx:latest
+    image: luxveris/reverse2:nginx
     container_name: nginx
-    ports:
+    ports:  
       - "80:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
